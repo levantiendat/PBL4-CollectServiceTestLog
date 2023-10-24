@@ -77,17 +77,14 @@ namespace ServiceTestLog
 					num++;
 					listData.Add(p.ProcessName);
 				}
-				
 			}
-			if(now.Minute >=58 && now.Minute <= 59)
+			if (now.Minute >= 58 && now.Minute <= 59)
 			{
 				data = (num + Environment.NewLine) + data;
 				WriteToFile(data);
 				num = 0;
 				listData.Clear();
 			}
-			
-
 		}
 		
 		public void WriteToFile(string Message)
