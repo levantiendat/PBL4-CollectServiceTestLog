@@ -30,13 +30,10 @@ namespace ServiceTestLog
 			timer.Elapsed += new ElapsedEventHandler(OnElapsedTime);
 			timer.Interval = 2 * 60 * 1000;
 			timer.Enabled = true;
-			WriteToFile("Service start at: " + DateTime.Now);
 		}
 
 		protected override void OnStop()
 		{
-
-			WriteToFile("Service stop at: " + DateTime.Now);
 		}
 
 		private void OnElapsedTime(object source, ElapsedEventArgs e)
@@ -82,6 +79,7 @@ namespace ServiceTestLog
 			{
 				data = (num + Environment.NewLine) + data;
 				WriteToFile(data);
+				data = "";
 				num = 0;
 				listData.Clear();
 			}
